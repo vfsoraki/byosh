@@ -1,0 +1,6 @@
+FROM nginx:1.19-alpine
+LABEL maintainer "Vahid Fazlollahzade <vfsoraki@gmail.com>"
+
+RUN apk add --no-cache nginx-mod-stream
+RUN rm -rf /etc/nginx/conf.d
+COPY nginx.conf /etc/nginx/nginx.conf

@@ -14,8 +14,8 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     if args.debug:
-        print('IP: %s Port: %s withInternet: %s' % (args.ip, args.port, args.withInternet))
-    
+        print('IP: %s Port: %s' % (args.ip, args.port))
+
     if str(args.ip).upper() == "ENV":
         args.ip = environ.get("PUB_IP")
 

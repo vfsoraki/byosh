@@ -1,0 +1,12 @@
+FROM python:3.8-alpine
+LABEL maintainer "Vahid Fazlollahzade <vfsoraki@gmail.com>"
+
+RUN pip install --no-cache-dir dnslib
+
+RUN mkdir -p /opt/dns
+WORKDIR /opt/dns
+COPY dns.py dns.py
+COPY domains domains
+RUN chmod +x dns.py
+
+CMD python -u /opt/dns/dns.py --ip ENV --whitelist /opt/dns/domains --debug
